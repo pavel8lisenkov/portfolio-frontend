@@ -1,7 +1,16 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+	plugins: [react()],
+	server: {
+		proxy: {
+			// все запросы к /api будут перенаправляться на WordPress REST API
+			'/api': {
+				target: 'http://localhost:8888/wordpress/wp-json',
+				changeOrigin: true,
+				rewrite: path => path.replace(/^\/api/, ''),
+			},
+		},
+	},
+});
