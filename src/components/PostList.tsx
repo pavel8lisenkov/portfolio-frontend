@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import type { Post } from '../types.ts';
+import PostItem from './PostItem.tsx';
 
 type PostListProps = {
 	refresh: boolean;
@@ -27,19 +28,7 @@ const PostList: React.FC<PostListProps> = ({ refresh }) => {
 	return (
 		<div className='grid gap-6 p-6 md:grid-cols-2 lg:grid-cols-3'>
 			{posts.map(post => (
-				<div
-					key={post.id}
-					className='p-4 border rounded shadow hover:shadow-lg transition'
-				>
-					<h2
-						className='text-xl font-bold mb-2'
-						dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-					/>
-					<div
-						className='text-gray-700'
-						dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
-					/>
-				</div>
+				<PostItem key={post.id} post={post} />
 			))}
 		</div>
 	);
