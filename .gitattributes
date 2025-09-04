@@ -1,0 +1,12 @@
+# Все текстовые файлы в репозитории будут храниться с LF
+* text=auto eol=lf
+
+# Для кода явно указываем LF
+*.js   text eol=lf
+*.ts   text eol=lf
+*.tsx  text eol=lf
+*.jsx  text eol=lf
+*.css  text eol=lf
+*.scss text eol=lf
+*.html text eol=lf
+*.md   text eol=lf
