@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import AddPost from './components/AddPost';
 import LoginPage from './components/LoginPage';
-import PostList from './components/PostList';
+import AddPost from './components/Posts/AddPost';
+import PostList from './components/Posts/PostList';
 
 const App: React.FC = () => {
 	const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
@@ -29,7 +29,7 @@ const App: React.FC = () => {
 					>
 						Выйти
 					</button>
-					<PostList refresh={refresh} />
+					<PostList refresh={refresh} setRefresh={setRefresh} />
 					<AddPost setRefresh={setRefresh} />
 				</div>
 			) : (
